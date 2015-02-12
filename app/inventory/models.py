@@ -24,7 +24,7 @@ class Item(models.Model):
 
 class PurchaseOrder(models.Model):
     #ID is created automatically by Django
-    item = models.ForeighKey(Item)
+    item = models.ForeignKey(Item)
     quantity = models.IntegerField()
 
 class CustomerLinkPO(models.Model):

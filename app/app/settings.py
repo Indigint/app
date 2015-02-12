@@ -1,5 +1,5 @@
 """
-Django settings for inventory project.
+Django settings for app project.
 
 For more information on this file, see
 https://docs.djangoproject.com/en/1.7/topics/settings/
@@ -17,7 +17,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(__file__))
 # See https://docs.djangoproject.com/en/1.7/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = '74fuk$^q4e6xqujxzfvodnw$ndszi@4rws=)c-&jf0vr_e3am#'
+SECRET_KEY = '%4zh*xdo@0*1lm#qnn@$0yh0i@yf52-&0$t1&ru4q#npnq$b-6'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -36,6 +36,7 @@ INSTALLED_APPS = (
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'inventory',
 )
 
 MIDDLEWARE_CLASSES = (
@@ -48,9 +49,9 @@ MIDDLEWARE_CLASSES = (
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 )
 
-ROOT_URLCONF = 'inventory.urls'
+ROOT_URLCONF = 'app.urls'
 
-WSGI_APPLICATION = 'inventory.wsgi.application'
+WSGI_APPLICATION = 'app.wsgi.application'
 
 
 # Database
