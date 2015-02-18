@@ -27,12 +27,21 @@ class ItemAdmin(admin.ModelAdmin):
 admin.site.register(inventory.Item, ItemAdmin)
 
 # Vendor
+#admin.site.register(inventory.Vendor)
 class VendorAdmin(admin.ModelAdmin):
     search_fields = ['business_name']
     list_filter = ['business_name']
 admin.site.register(inventory.Vendor, VendorAdmin)
 
-#admin.site.register(inventory.Purchase)
+# Purchase Order
+class PurchaseOrderAdmin(admin.ModelAdmin):
+    fields = ['customer', 'items']
+    search_fields = ['customer']
+    list_filter = ['customer', 'id']
+admin.site.register(inventory.PurchaseOrder, PurchaseOrderAdmin)
+
 #admin.site.register(inventory.POLinkPurchase)
 #admin.site.register(inventory.CustomerLinkPO)
+#admin.site.register(inventory.Purchase)
+
 

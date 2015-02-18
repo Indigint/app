@@ -26,11 +26,11 @@ class Item(models.Model):
     style = models.CharField(max_length=50)
     description = models.CharField(max_length=100)
     quantity = models.IntegerField()
-    price = models.IntegerField()
+    price = models.DecimalField(decimal_places=2, max_digits=12)
     vendor = models.ForeignKey(Vendor)
 
     def __unicode__(self):
-        return self.name + ' - ' + self.style
+        return self.name + ' (' + self.style + ')'
 
 class Purchase(models.Model):
     #ID is created automatically by Django
@@ -38,7 +38,7 @@ class Purchase(models.Model):
     quantity = models.IntegerField()
 
     def __unicode__(self):
-        return self.id
+        return self.item.name + ' ' + str(self.quantity)
 
 class POLinkPurchase(models.Model):
     #ID is created automatically by Django
@@ -46,7 +46,7 @@ class POLinkPurchase(models.Model):
     purchase = models.ForeignKey(Purchase)
 
     def __unicode__(self):
-        return self.id
+        return str(self.id)
 
 class CustomerLinkPO(models.Model):
     #ID is created automatically by Django
@@ -54,4 +54,12 @@ class CustomerLinkPO(models.Model):
     po = models.ForeignKey(POLinkPurchase)
 
     def __unicode__(self):
-        return self.id
+        return str(self.id) + ' ' + self.customer.name
+
+class PurchaseOrder(models.Model):
+    #ID is created automatically by Django
+    customer = models.ForeignKey(Customer)
+    items = models.ManyToManyField(Purchase)
+
+    def __unicode__(self):
+        return '#' + str(self.id) + ' ' + self.customer.name
