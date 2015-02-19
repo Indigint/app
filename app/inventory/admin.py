@@ -40,8 +40,8 @@ class PurchaseOrderAdmin(admin.ModelAdmin):
     list_filter = ['customer', 'id']
 admin.site.register(inventory.PurchaseOrder, PurchaseOrderAdmin)
 
-#admin.site.register(inventory.POLinkPurchase)
-#admin.site.register(inventory.CustomerLinkPO)
-#admin.site.register(inventory.Purchase)
+admin.site.register(inventory.POLinkPurchase)
+admin.site.register(inventory.CustomerLinkPO)
+admin.site.register(inventory.Purchase)
 
 

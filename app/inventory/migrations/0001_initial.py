@@ -40,9 +40,31 @@ class Migration(migrations.Migration):
             fields=[
                 ('id', models.AutoField(verbose_name='ID', serialize=False, auto_created=True, primary_key=True)),
                 ('name', models.CharField(max_length=50)),
+                ('style', models.CharField(max_length=50)),
                 ('description', models.CharField(max_length=100)),
                 ('quantity', models.IntegerField()),
-                ('price', models.IntegerField()),
+                ('price', models.DecimalField(max_digits=12, decimal_places=2)),
+            ],
+            options={
+            },
+            bases=(models.Model,),
+        ),
+        migrations.CreateModel(
+            name='POLinkPurchase',
+            fields=[
+                ('id', models.AutoField(verbose_name='ID', serialize=False, auto_created=True, primary_key=True)),
+                ('po_number', models.IntegerField()),
+            ],
+            options={
+            },
+            bases=(models.Model,),
+        ),
+        migrations.CreateModel(
+            name='Purchase',
+            fields=[
+                ('id', models.AutoField(verbose_name='ID', serialize=False, auto_created=True, primary_key=True)),
+                ('quantity', models.IntegerField()),
+                ('item', models.ForeignKey(to='inventory.Item')),
             ],
             options={
             },
@@ -52,8 +74,8 @@ class Migration(migrations.Migration):
             name='PurchaseOrder',
             fields=[
                 ('id', models.AutoField(verbose_name='ID', serialize=False, auto_created=True, primary_key=True)),
-                ('quantity', models.IntegerField()),
-                ('item', models.ForeignKey(to='inventory.Item')),
+                ('customer', models.ForeignKey(to='inventory.Customer')),
+                ('items', models.ManyToManyField(to='inventory.Purchase')),
             ],
             options={
             },
@@ -71,6 +93,12 @@ class Migration(migrations.Migration):
             bases=(models.Model,),
         ),
         migrations.AddField(
+            model_name='polinkpurchase',
+            name='purchase',
+            field=models.ForeignKey(to='inventory.Purchase'),
+            preserve_default=True,
+        ),
+        migrations.AddField(
             model_name='item',
             name='vendor',
             field=models.ForeignKey(to='inventory.Vendor'),
@@ -79,7 +107,7 @@ class Migration(migrations.Migration):
         migrations.AddField(
             model_name='customerlinkpo',
             name='po',
-            field=models.ForeignKey(to='inventory.PurchaseOrder'),
+            field=models.ForeignKey(to='inventory.POLinkPurchase'),
             preserve_default=True,
         ),
     ]
