@@ -6,8 +6,9 @@ class Customer(models.Model):
     street = models.CharField(max_length=100)
     city = models.CharField(max_length=50)
     zip = models.CharField(max_length=50)
-    email = models.CharField(max_length=50)
-    phone = models.CharField(max_length=50)
+    email = models.EmailField()
+    phone = models.CharField(max_length=20)
+    is_vendor = models.BooleanField(default=False)
 
     def __unicode__(self):
         return self.name
@@ -34,32 +35,28 @@ class Item(models.Model):
 
 class Purchase(models.Model):
     #ID is created automatically by Django
-    item = models.ForeignKey(Item)
     quantity = models.IntegerField()
+    item = models.ForeignKey(Item)
+    # customer = models.ForeignKey(Customer)
 
     def __unicode__(self):
         return self.item.name + ' ' + str(self.quantity)
 
+class PurchaseOrder(models.Model):
+    #ID is created automatically by Django
+    customer = models.ForeignKey(Customer)
+    items = []
+
+    def get_ordered_items(self):
+        return 'Maybe!'
+
+    def __unicode__(self):
+        return '#' + str(self.id) + ' ' + self.customer.name
+
 class POLinkPurchase(models.Model):
     #ID is created automatically by Django
-    po_number = models.IntegerField()
+    po = models.ForeignKey(PurchaseOrder)
     purchase = models.ForeignKey(Purchase)
 
     def __unicode__(self):
         return str(self.id)
-
-class CustomerLinkPO(models.Model):
-    #ID is created automatically by Django
-    customer = models.ForeignKey(Customer)
-    po = models.ForeignKey(POLinkPurchase)
-
-    def __unicode__(self):
-        return str(self.id) + ' ' + self.customer.name
-
-class PurchaseOrder(models.Model):
-    #ID is created automatically by Django
-    customer = models.ForeignKey(Customer)
-    items = models.ManyToManyField(Purchase)
-
-    def __unicode__(self):
-        return '#' + str(self.id) + ' ' + self.customer.name
