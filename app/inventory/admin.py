@@ -41,10 +41,16 @@ class PurchaseOrderAdmin(admin.ModelAdmin):
     fields = ['customer']
     search_fields = ['customer']
     list_filter = ['customer', 'id']
-
 admin.site.register(inventory.PurchaseOrder, PurchaseOrderAdmin)
 
+# Purchases
+class PurchaseAdmin(admin.ModelAdmin):
+    list_display = ['item', 'quantity']
+    search_fields = ['item']
+    list_filter = ['item']
+admin.site.register(inventory.Purchase, PurchaseAdmin)
+
 admin.site.register(inventory.POLinkPurchase)
-admin.site.register(inventory.Purchase)
+
 
 

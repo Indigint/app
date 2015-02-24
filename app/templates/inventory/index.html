@@ -1,0 +1,7 @@
+{% if purchase_orders %}
+    <ol>
+    {% for po in purchase_orders %}
+        <li><a href="/inventory/{{po.customer.id}}/">{{po.customer.name}}</a></li>
+    {% endfor %}
+    </ol>
+{% endif %}

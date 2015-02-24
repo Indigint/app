@@ -47,9 +47,6 @@ class PurchaseOrder(models.Model):
     customer = models.ForeignKey(Customer)
     items = []
 
-    def get_ordered_items(self):
-        return 'Maybe!'
-
     def __unicode__(self):
         return '#' + str(self.id) + ' ' + self.customer.name
 
