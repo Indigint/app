@@ -37,7 +37,6 @@ class Purchase(models.Model):
     #ID is created automatically by Django
     quantity = models.IntegerField()
     item = models.ForeignKey(Item)
-    # customer = models.ForeignKey(Customer)
 
     def __unicode__(self):
         return self.item.name + ' ' + str(self.quantity)
@@ -45,7 +44,6 @@ class Purchase(models.Model):
 class PurchaseOrder(models.Model):
     #ID is created automatically by Django
     customer = models.ForeignKey(Customer)
-    items = []
 
     def __unicode__(self):
         return '#' + str(self.id) + ' ' + self.customer.name

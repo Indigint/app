@@ -1,8 +1,12 @@
-{% if purchase_orders %}
-    {% for po in purchase_orders %}
-        <h1>{{po.customer.name}}</h1>
-        <ul>
-
-        </ul>
+<table>
+    <tr>
+        <th>---</th>
+        <th>{{customer}}</th>
+    </tr>
+    {% for i in items %}
+     <tr>
+         <td>{{i.purchase.quantity}}</td>
+         <td>{{i.purchase.item.name}}(s)</td>
+     </tr>
     {% endfor %}
-{% endif %}
+</table>
