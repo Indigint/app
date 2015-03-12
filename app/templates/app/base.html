@@ -7,21 +7,25 @@
     <h3>base.html - default header</h3>
 
     {% block nav-bar %}
-        <hr>
-        <h3>base.html - default nav-bar</h3>
-        <a href="index.html"><img width=100 height=100 src="" alt="index image goes here" /></a>
-        <a href="why.html"> Why </a>
-        <a href="about.html"> About </a>
-        <a href="contact.html"> Contact </a>
+        <a href="{% url 'index' %}"><img width=100 height=100 src="" alt="index image goes here" /></a>
+        <a href="{% url 'why' %}"> Why </a>
+        <a href="{% url 'about' %}"> About </a>
+        <a href="{% url 'contact' %}"> Contact </a>
     {% endblock %}
 
 
 {% endblock %}
 
-<hr>
 {%block content %}<h3>base.html - default content</h3>{% endblock %}
 
-<hr>
-{% block footer %}<h3>base.html - default footer</h3>{% endblock %}
+{% block footer %}
+	<div class="container-fluid well footer">
+	<div class="container">
+
+    <p style="text-align:center;">Copyright &copy; 2015 Indigint Inc.</p>
+
+	</div> <!-- end of container class -->
+	</div> <!-- end of container-fluid well class -->
+    {% endblock %}
 
 </html>
