@@ -1,13 +1,13 @@
-from django.http import HttpResponse
+from django.shortcuts import render
 
 def index(request):
-    return HttpResponse("Welcome to the index page!")
+    return render(request, 'app/index.html', {})
 
 def about(request):
-    return HttpResponse("Welcome to the about page!")
+    return render(request, 'app/about.html', {})
 
 def contact(request):
-    return HttpResponse("Welcome to the contact page!")
+    return render(request, 'app/contact.html', {})
 
 def why(request):
-    return HttpResponse("Welcome to the why page!")
+    return render(request, 'app/why.html', {})
