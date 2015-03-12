@@ -2,10 +2,26 @@
 
 <!-- base.html is the format the website will follow -->
 
-{% block header %}<h3>base.html - default header</h3>{% endblock %}
+{% block header %}
 
+    <h3>base.html - default header</h3>
+
+    {% block nav-bar %}
+        <hr>
+        <h3>base.html - default nav-bar</h3>
+        <a href="index.html"><img width=100 height=100 src="" alt="index image goes here" /></a>
+        <a href="why.html"> Why </a>
+        <a href="about.html"> About </a>
+        <a href="contact.html"> Contact </a>
+    {% endblock %}
+
+
+{% endblock %}
+
+<hr>
 {%block content %}<h3>base.html - default content</h3>{% endblock %}
 
+<hr>
 {% block footer %}<h3>base.html - default footer</h3>{% endblock %}
 
 </html>
