@@ -1,3 +1,4 @@
+from django.contrib.auth.models import User
 from django.db import models
 
 class Customer(models.Model):
@@ -55,3 +56,9 @@ class POLinkPurchase(models.Model):
 
     def __unicode__(self):
         return str(self.id)
+
+class UserProfile(models.Model):
+    user = models.OneToOneField(User)
+
+    def __unicode__(self):
+        return self.user.username

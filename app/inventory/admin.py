@@ -4,7 +4,6 @@ import inventory.models as inventory
 # Register your models here.
 
 # Customer
-#admin.site.register(inventory.Customer)
 class CustomerAdmin(admin.ModelAdmin):
     list_display = ['name', 'phone', 'email', 'is_vendor']
     fieldsets = [
@@ -17,7 +16,6 @@ class CustomerAdmin(admin.ModelAdmin):
 admin.site.register(inventory.Customer, CustomerAdmin)
 
 # Item
-#admin.site.register(inventory.Item)
 class ItemAdmin(admin.ModelAdmin):
     list_display = ['style', 'name', 'quantity', 'vendor']
     fieldsets = [
@@ -29,7 +27,6 @@ class ItemAdmin(admin.ModelAdmin):
 admin.site.register(inventory.Item, ItemAdmin)
 
 # Vendor
-#admin.site.register(inventory.Vendor)
 class VendorAdmin(admin.ModelAdmin):
     list_display = ['business_name', 'contact']
     search_fields = ['business_name']
@@ -50,7 +47,11 @@ class PurchaseAdmin(admin.ModelAdmin):
     list_filter = ['item']
 admin.site.register(inventory.Purchase, PurchaseAdmin)
 
+# PO Link Purchase
 admin.site.register(inventory.POLinkPurchase)
+
+# User Profile
+admin.site.register(inventory.UserProfile)
 
 
 
