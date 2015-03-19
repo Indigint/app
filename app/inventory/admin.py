@@ -2,6 +2,11 @@ from django.contrib import admin
 import inventory.models as inventory
 
 # Customer
+
+# TRACE: Customer Table: Add
+# TRACE: Customer Table: Delete
+# TRACE: Customer Table: Edit
+
 class CustomerAdmin(admin.ModelAdmin):
     list_display = ['name', 'phone', 'email', 'is_vendor']
     fieldsets = [
@@ -14,6 +19,11 @@ class CustomerAdmin(admin.ModelAdmin):
 admin.site.register(inventory.Customer, CustomerAdmin)
 
 # Item
+
+# TRACE: Items Table: Edit Table
+# TRACE: Items Table: Add Items
+# TRACE: Items Table: Edit Items
+
 class ItemAdmin(admin.ModelAdmin):
     list_display = ['style', 'name', 'quantity', 'vendor']
     fieldsets = [
@@ -25,6 +35,11 @@ class ItemAdmin(admin.ModelAdmin):
 admin.site.register(inventory.Item, ItemAdmin)
 
 # Vendor
+
+# TRACE: Vendor Table: Edit
+# TRACE: Vendor Table: Add
+# TRACE:Vendor Table: Delete
+
 class VendorAdmin(admin.ModelAdmin):
     list_display = ['business_name', 'contact']
     search_fields = ['business_name']
@@ -32,6 +47,11 @@ class VendorAdmin(admin.ModelAdmin):
 admin.site.register(inventory.Vendor, VendorAdmin)
 
 # Purchase Order
+
+# TRACE: Purchase Order Table: Edit
+# TRACE: Purchase Order Table: Add
+# TRACE: Purchase Order Table: Delete
+
 class PurchaseOrderAdmin(admin.ModelAdmin):
     fields = ['customer']
     search_fields = ['customer']
@@ -39,6 +59,11 @@ class PurchaseOrderAdmin(admin.ModelAdmin):
 admin.site.register(inventory.PurchaseOrder, PurchaseOrderAdmin)
 
 # Purchases
+
+# TRACE: Customer Purchases Table: Edit
+# TRACE: Customer Purchases Table: Add
+# TRACE: Customer Purchases Table: Delete
+
 class PurchaseAdmin(admin.ModelAdmin):
     list_display = ['item', 'quantity']
     search_fields = ['item']
