@@ -1,8 +1,6 @@
 from django.contrib import admin
 import inventory.models as inventory
 
-# Register your models here.
-
 # Customer
 class CustomerAdmin(admin.ModelAdmin):
     list_display = ['name', 'phone', 'email', 'is_vendor']
@@ -48,10 +46,10 @@ class PurchaseAdmin(admin.ModelAdmin):
 admin.site.register(inventory.Purchase, PurchaseAdmin)
 
 # PO Link Purchase
-admin.site.register(inventory.POLinkPurchase)
+#admin.site.register(inventory.POLinkPurchase)
 
 # User Profile
-admin.site.register(inventory.UserProfile)
+#admin.site.register(inventory.UserProfile)
 
 
 

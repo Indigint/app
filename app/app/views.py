@@ -26,7 +26,7 @@ def register(request):
             user.save()
             registered = True
         else:
-            print user_form.errors.errors
+            print user_form.errors
     else:
         user_form = UserForm()
 
