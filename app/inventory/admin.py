@@ -71,7 +71,12 @@ class PurchaseAdmin(admin.ModelAdmin):
 admin.site.register(inventory.Purchase, PurchaseAdmin)
 
 # PO Link Purchase
-#admin.site.register(inventory.POLinkPurchase)
+
+# TRACE: Link Table: PO and Purchase: Edit
+# TRACE: Link Table: PO and Purchase: Add
+# TRACE: Link Table: PO and Purchase: Delete
+
+admin.site.register(inventory.POLinkPurchase)
 
 # User Profile
 #admin.site.register(inventory.UserProfile)
