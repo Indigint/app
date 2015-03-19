@@ -1,7 +1,9 @@
 from django.contrib.auth.models import User
 from django.db import models
 
-### Trace: customer table
+# TRACE: makes DB to store data
+
+# TRACE: customer table
 class Customer(models.Model):
     #ID is created automatically by Django
     name = models.CharField(max_length=50)
@@ -15,7 +17,7 @@ class Customer(models.Model):
     def __unicode__(self):
         return self.name
 
-### Trace: vendor table
+# TRACE: vendor table
 class Vendor(models.Model):
     #ID is created automatically by Django
     business_name = models.CharField(max_length=50)
@@ -24,7 +26,7 @@ class Vendor(models.Model):
     def __unicode__(self):
         return self.business_name
 
-### Trace: item table
+# TRACE: item table
 class Item(models.Model):
     #ID is created automatically by Django
     name = models.CharField(max_length=50)
@@ -37,7 +39,7 @@ class Item(models.Model):
     def __unicode__(self):
         return self.name + ' (' + self.style + ')'
 
-### Trace: purchase table
+# TRACE: purchase table
 class Purchase(models.Model):
     #ID is created automatically by Django
     quantity = models.IntegerField()
@@ -46,7 +48,7 @@ class Purchase(models.Model):
     def __unicode__(self):
         return self.item.name + ' ' + str(self.quantity)
 
-### Trace: purchase order table
+# TRACE: purchase order table
 class PurchaseOrder(models.Model):
     #ID is created automatically by Django
     customer = models.ForeignKey(Customer)
@@ -54,7 +56,7 @@ class PurchaseOrder(models.Model):
     def __unicode__(self):
         return '#' + str(self.id) + ' ' + self.customer.name
 
-### Trace: link table for po and purchase
+# TRACE: link table for po table and purchase table
 class POLinkPurchase(models.Model):
     #ID is created automatically by Django
     po = models.ForeignKey(PurchaseOrder)
@@ -63,7 +65,7 @@ class POLinkPurchase(models.Model):
     def __unicode__(self):
         return str(self.id)
 
-### Trace: user profile table
+# TRACE: Allows for registration and logins
 class UserProfile(models.Model):
     user = models.OneToOneField(User)
 
