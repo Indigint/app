@@ -1,5 +1,7 @@
 from django.shortcuts import render
 from inventory.forms import UserForm
+from django.contrib.auth import authenticate, login
+from django.http import HttpResponseRedirect, HttpResponse
 
 def index(request):
     return render(request, 'app/index.html', {})
@@ -31,3 +33,28 @@ def register(request):
         user_form = UserForm()
 
     return render(request, 'app/register.html', {'user_form': user_form, 'registered': registered} )
+
+def login_user(request):
+
+    if request.method == 'POST':
+        username = request.POST.get('username')
+        password = request.POST.get('password')
+
+        user = authenticate(username=username, password=password)
+
+        if user:
+            if user.is_active:
+                # The account is valid and active
+                login(request, user)
+                return HttpResponseRedirect('/index/')
+            else:
+                # Inactive account
+                return HttpResponse("Your account is disabled.")
+        else:
+            # Bad login
+            print "Invalid login details: {0}, {1}".format(username, password)
+            return HttpResponse("Invalid login details supplied.")
+
+    else:
+
+        return render(request, 'app/login.html', {})
