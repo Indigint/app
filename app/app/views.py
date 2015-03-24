@@ -1,7 +1,8 @@
 from django.shortcuts import render
 from inventory.forms import UserForm
-from django.contrib.auth import authenticate, login
+from django.contrib.auth import authenticate, login, logout
 from django.http import HttpResponseRedirect, HttpResponse
+from django.contrib.auth.decorators import login_required
 
 def index(request):
     return render(request, 'app/index.html', {})
@@ -58,3 +59,9 @@ def login_user(request):
     else:
 
         return render(request, 'app/login.html', {})
+
+@login_required
+def logout_user(request):
+    logout(request)
+
+    return HttpResponseRedirect('/index/')

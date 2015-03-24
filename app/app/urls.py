@@ -13,6 +13,8 @@ urlpatterns = patterns('',
     url(r'^why/$', 'app.views.why', name='why'),
     url(r'register/$', 'app.views.register', name='register'),
     url(r'login/$', 'app.views.login_user', name='login'),
+    #url(r'^restricted/$', 'app.views.restricted', name='restricted'),
+    url(r'^logout/$', 'app.views.logout_user', name='logout'),
 
     url(r'^po/', include('inventory.urls')),
     url(r'^admin/', include(admin.site.urls)),
