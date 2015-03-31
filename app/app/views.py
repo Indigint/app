@@ -47,7 +47,7 @@ def login_user(request):
             if user.is_active:
                 # The account is valid and active
                 login(request, user)
-                return HttpResponseRedirect('/index/')
+                return HttpResponseRedirect('/po/')
             else:
                 # Inactive account
                 return HttpResponse("Your account is disabled.")
