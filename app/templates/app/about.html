@@ -1,11 +1,12 @@
 {% extends "app/base.html" %}
+{% load static %}
 
 {% block content %}
 <div class="container about">
 	<div class="row">
 
 		<div class="col-md-6 aboutImg" >
-			<img src="images/stockPhotos/white_couple_grocery.jpg" alt="Couple Shopping">
+			<img src="{% static 'images/stockPhotos/white_couple_grocery.jpg' %}" alt="Couple Shopping">
 		</div> <!-- end of col-md-4 (stockImage) -->
 		<div class="col-md-6">
 			<h1>About Us</h1>

@@ -1,10 +1,25 @@
 <html>
 
-<!-- base.html is the format the website will follow -->
+{% load static %}
 
 {% block header %}
+    <head>
+        <link rel="shortcut icon" href="{% static 'images/indigint.ico' %}" type="image/x-icon">
+		<link rel="icon" href="{% static 'images/indigint.ico' %}" type="image/x-icon">
+		<meta charset="utf-8">
+		<meta property="og:title" content="Indigint" />
+		<meta property="og:type" content="website" />
+		<meta property="og:url" content="http://indigint.com" />
+		<meta property="og:image" content="{% static 'images/main_logo.png' %}" />
 
-    <h3>base.html - default header</h3>
+        <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+
+        <link href="{% static 'css/bootstrap.css' %}" rel="stylesheet" type="text/css">
+        <link href="{% static 'css/stylesheet.css' %}" rel="stylesheet" type="text/css">
+
+        <script type="text/JavaScript" src="{% static 'js/sha512.js' %}"></script>
+        <script type="text/JavaScript" src="{% static 'js/forms.js' %}"></script>
+    </head>
 
     {% block nav-bar %}
         <a href="{% url 'index' %}"><img width=100 height=100 src="" alt="index image goes here" /></a>
