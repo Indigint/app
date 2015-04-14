@@ -45,7 +45,6 @@
                         </li>
 
                         {% if user.is_authenticated %}
-                            Hello, {{ user.username }}
                             <li><a href="{% url 'logout' %}"> Logout </a>
                             </li>
                         {% else %}
@@ -55,6 +54,9 @@
                             </li>
                         {% endif%}
                     </ul>
+                    {% if user.is_authenticated %}
+                        <div id="hello">Logged in as {{ user.username }}</div>
+                    {% endif%}
                 </div>
             </center>
         </div>

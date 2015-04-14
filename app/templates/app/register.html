@@ -18,9 +18,33 @@
                     {% else %}
                         <form id="user_form" method="post" action="/app/register/" enctype="multipart/form-data">
 
-                            {% csrf_token %}
-
-                            {{ user_form.as_p }}
+                        {% csrf_token %}
+                        <!-- Username -->
+                        <div style="margin-bottom: 10px" class="input-group">
+                            <span class="input-group-addon"<i class="glyphicon glyphicon-user"></i></span>
+                            <input id="login-username" type="text" class="form-control" name="username" value="" placeholder="Username">
+                        </div>
+                        <!-- First Name -->
+                        <div style="margin-bottom: 10px" class="input-group">
+                            <span class="input-group-addon"<i class="glyphicon glyphicon-user"></i></span>
+                            <input id="login-username" type="text" class="form-control" name="first_name" value="" placeholder="First Name">
+                        </div>
+                        <!-- Last Name -->
+                        <div style="margin-bottom: 10px" class="input-group">
+                            <span class="input-group-addon"<i class="glyphicon glyphicon-user"></i></span>
+                            <input id="login-username" type="text" class="form-control" name="last_name" value="" placeholder="Last Name">
+                        </div>
+                        <!-- Email Address -->
+                        <div style="margin-bottom: 10px" class="input-group">
+                            <span class="input-group-addon"<i class="glyphicon glyphicon-envelope"></i></span>
+                            <input id="email" type="text" class="form-control" name="email" value="" placeholder="Email">
+                        </div>
+                        <!-- Password -->
+                        <div style="margin-bottom: 10px" class="input-group">
+                            <span class="input-group-addon"<i class="glyphicon glyphicon-ok-circle"></i></span>
+                            <input id="password" type="password" class="form-control" name="password" value="" placeholder="Password">
+                        </div>
+                        <br />
 
                             <input type="submit" name="submit" id="btn-login" class="btn btn-success" value="Register" />
                         </form>
