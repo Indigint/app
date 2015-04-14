@@ -1,4 +1,28 @@
-Indigint Inventory Manager Documentation
+== Indigint Inventory Manager Documentation ==
+
+To install the Inventory Application please follow the following steps:
+
+All applications and files should be saved on the server you want to run the application from.
+
+Install Python 2.7.9
+Python can be found for free at the following website: https://www.python.org/downloads/release/python-279/
+
+ Run get-pip.py
+Open a command line with admin privileges.
+Run get-pip.py from the appropriate folder.
+get-pip should be included in python 2.7.9, if you are having trouble running the file you can save the file from the following website: https://pip.pypa.io/en/latest/installing.html
+
+Use pip to install Django 1.7.3: 
+Open a command line with admin privileges.
+run pip install Django==1.7.3 from the appropriate folder.
+
+Install the application
+Navigate to the following website: https://github.com/Indigint/app
+Download the application.
+Move the application to the Django project folder on the root menu of the server.
+
+Running the application
+Simple launch Django and the application will launch as well.
 
 == Features ==
 
