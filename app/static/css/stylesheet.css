@@ -34,80 +34,82 @@ body {
     */
 }
 
-header {
-    padding-left:30px;
-    padding-top:15px;
-    font-family: 'profontwindowsregular';
-    font-size: 24px;
-}
-
 .scroll-none {
-		overflow-y:hidden;
+    overflow-y:hidden;
 }
 
 .welcome {
-	color: #110d42;
+    color: #110d42;
 }
 	
 .vertCenter {
-	position: relative;
-	top: 50%;
-	transform: translateY(-50%);
+    position: relative;
+    top: 50%;
+    transform: translateY(-50%);
 }
 
 .about img {
-	width: 100%;
-	height: auto;
-	overflow: hidden;
-	float:none;
+    width: 100%;
+    height: auto;
+    overflow: hidden;
+    float:none;
     display:inline-block;
     vertical-align:middle;
     margin: 20px 5px;
 } 
 
-.navbar, .footer{
+.nav {
+    color: white;
+}
 
-	text-decoration: none;
+.navbar, .footer {
+    text-decoration: none;
     text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25);
     color:  #ddd;
     font-size: large;
-	background: -webkit-linear-gradient(#0033CC, #4D70DB); /* For Safari 5.1 to 6.0 */
-  	background: -o-linear-gradient(#0033CC, #4D70DB); /* For Opera 11.1 to 12.0 */
-  	background: -moz-linear-gradient(#0033CC, #4D70DB); /* For Firefox 3.6 to 15 */
-  	background: linear-gradient(#0033CC, #4D70DB); /* Standard syntax */
-
+    background: -webkit-linear-gradient(#0033CC, #4D70DB); /* For Safari 5.1 to 6.0 */
+    background: -o-linear-gradient(#0033CC, #4D70DB); /* For Opera 11.1 to 12.0 */
+    background: -moz-linear-gradient(#0033CC, #4D70DB); /* For Firefox 3.6 to 15 */
+    background: linear-gradient(#0033CC, #4D70DB); /* Standard syntax */
 }
 
-.nav {
-	color: white;
+.footer {
+    position: fixed;
+    width: 100%;
+    height: 28px;
+    bottom: 0;
+    margin-bottom: 0;
+    padding: 0;
+}
+
+.footer-text {
+    text-align: center;
 }
 
 .contactUs {
-	position: relative;
-	top: 5px;
-
+    position: relative;
+    top: 5px;
 }
 
 footer {
-	background: -webkit-linear-gradient(#0033CC, #4D70DB); /* For Safari 5.1 to 6.0 */
-  	background: -o-linear-gradient(#0033CC, #4D70DB); /* For Opera 11.1 to 12.0 */
-  	background: -moz-linear-gradient(#0033CC, #4D70DB); /* For Firefox 3.6 to 15 */
-  	background: linear-gradient(#0033CC, #4D70DB); /* Standard syntax */
-  	color: #FFF;
-  	font-size: 14px;
-  	padding: 20px;
+    background: -webkit-linear-gradient(#0033CC, #4D70DB); /* For Safari 5.1 to 6.0 */
+    background: -o-linear-gradient(#0033CC, #4D70DB); /* For Opera 11.1 to 12.0 */
+    background: -moz-linear-gradient(#0033CC, #4D70DB); /* For Firefox 3.6 to 15 */
+    background: linear-gradient(#0033CC, #4D70DB); /* Standard syntax */
+    color: #FFF;
+    font-size: 14px;
+    padding: 20px;
 }
 
 ul.unstyled {
-	list-style: none;
-	padding: 0;
-	color: #FFF;
-
+    list-style: none;
+    padding: 0;
+    color: #FFF;
 }
 
 footer > a {
-	color: inherit;
-	text-decoration: none;
+    color: inherit;
+    text-decoration: none;
 }
 
 #hello {
