@@ -3,15 +3,21 @@ from django.db import models
 
 # TRACE: makes DB to store data
 
+# TRACE: Allows for registration and logins
+class UserProfile(models.Model):
+    user = models.OneToOneField(User)
+
+    def __unicode__(self):
+        return self.user.username
+
 # TRACE: customer table
 class Customer(models.Model):
     #ID is created automatically by Django
-    name = models.CharField(max_length=50)
-    street = models.CharField(max_length=100)
-    city = models.CharField(max_length=50)
-    zip = models.CharField(max_length=50)
-    email = models.EmailField()
-    phone = models.CharField(max_length=20)
+    user = models.ForeignKey(UserProfile)
+    street = models.CharField(max_length=100, null=True)
+    city = models.CharField(max_length=50, null=True)
+    zip = models.CharField(max_length=50, null=True)
+    phone = models.CharField(max_length=20, null=True)
     is_vendor = models.BooleanField(default=False)
 
     def __unicode__(self):
@@ -65,9 +71,3 @@ class POLinkPurchase(models.Model):
     def __unicode__(self):
         return str(self.id)
 
-# TRACE: Allows for registration and logins
-class UserProfile(models.Model):
-    user = models.OneToOneField(User)
-
-    def __unicode__(self):
-        return self.user.username

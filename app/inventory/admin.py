@@ -7,8 +7,9 @@ import inventory.models as inventory
 # TRACE: Customer Table: Delete
 # TRACE: Customer Table: Edit
 
+'''
 class CustomerAdmin(admin.ModelAdmin):
-    list_display = ['name', 'phone', 'email', 'is_vendor']
+    list_display = ['name', 'phone', 'email', 'is_vendor', 'user']
     fieldsets = [
         ('Name',  {'fields': ['name']}),
         ('Address', {'fields': ['street', 'city', 'zip']}),
@@ -16,7 +17,8 @@ class CustomerAdmin(admin.ModelAdmin):
     ]
     search_fields = ['name', 'zip', 'phone', 'email']
     list_filter = ['name', 'zip']
-admin.site.register(inventory.Customer, CustomerAdmin)
+'''
+admin.site.register(inventory.Customer) #, CustomerAdmin)
 
 # Item
 

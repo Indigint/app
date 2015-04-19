@@ -3,6 +3,7 @@ from inventory.forms import UserForm
 from django.contrib.auth import authenticate, login, logout
 from django.http import HttpResponseRedirect, HttpResponse
 from django.contrib.auth.decorators import login_required
+from inventory.models import Customer
 
 def index(request):
     return render(request, 'app/index.html', {})
@@ -26,7 +27,12 @@ def register(request):
             # Save the user's form data to the database.
             user = user_form.save()
             user.set_password(user.password)
-            user.save()
+            #user.save()
+
+            # Register them as a customer
+            customer = Customer(user=user)
+            #customer.save()
+
             registered = True
         else:
             print user_form.errors
@@ -47,7 +53,10 @@ def login_user(request):
             if user.is_active:
                 # The account is valid and active
                 login(request, user)
-                return HttpResponseRedirect('/po/')
+                if user.is_staff:
+                    return HttpResponseRedirect('/po/admin/')
+                else:
+                    return HttpResponseRedirect('/po/user/')
             else:
                 # Inactive account
                 return HttpResponse("Your account is disabled.")

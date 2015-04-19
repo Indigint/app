@@ -1,0 +1,16 @@
+{% extends "app/base.html" %}
+{% load static %}
+
+{% block content %}
+
+    <h3>Backend:</h3>
+    <a href="/admin/">Admin Site</a>
+
+    <h3>User Orders:</h3>
+    <ol>
+        {% for po in purchase_orders %}
+            <li><a href="/po/{{po.customer.id}}/">{{po.customer.name}}</a></li>
+        {% endfor %}
+    </ol>
+
+{% endblock %}
