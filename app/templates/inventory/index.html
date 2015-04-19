@@ -1,0 +1,11 @@
+{% extends "app/base.html" %}
+
+{% block content %}
+
+<ol>
+{% for po in purchase_orders %}
+    <li><a href="/po/{{po.customer.id}}/">{{po.customer.name}}</a></li>
+{% endfor %}
+</ol>
+
+{% endblock %}

@@ -21,31 +21,58 @@
         <script type="text/JavaScript" src="{% static 'js/forms.js' %}"></script>
     </head>
 
-    {% block nav-bar %}
-        <a href="{% url 'index' %}"><img width=100 height=100 src="" alt="index image goes here" /></a>
-        <a href="{% url 'why' %}"> Why </a>
-        <a href="{% url 'about' %}"> About </a>
-        <a href="{% url 'contact' %}"> Contact </a>
+    <body class="main-bg">
 
-        {% if user.is_authenticated %}
-            Hello, {{ user.username }}
-            <a href="{% url 'logout' %}"> Logout </a>
-        {% else %}
-            <a href="{% url 'register' %}"> Register </a>
-            <a href="{% url 'login' %}"> Login </a>
-        {% endif%}
+    {% block nav-bar %}
+    <div class="navbar navbar-default navbar-fixed-top">
+        <div class="container">
+            <div class="navbar-header">
+                <button class="navbar-toggle" type="button" data-toggle="collapse" data-target="#navbar-main">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="{% url 'index' %}"><img src="{% static 'images/main_logo.png' %}"></a>
+            </div>
+            <center>
+                <div class="navbar-collapse collapse" id="navbar-main">
+                    <ul class ="nav navbar-nav">
+                        <li><a href="{% url 'why' %}"> Why </a>
+                        </li>
+                        <li><a href="{% url 'about' %}"> About </a>
+                        </li>
+                        <li><a href="{% url 'contact' %}"> Contact </a>
+                        </li>
+
+                        {% if user.is_authenticated %}
+                            <li><a href="{% url 'logout' %}"> Logout </a>
+                            </li>
+                        {% else %}
+                            <li><a href="{% url 'register' %}"> Register </a>
+                            </li>
+                            <li><a href="{% url 'login' %}"> Login </a>
+                            </li>
+                        {% endif%}
+                    </ul>
+                    {% if user.is_authenticated %}
+                        <div id="hello">Logged in as {{ user.username }}</div>
+                    {% endif%}
+                </div>
+            </center>
+        </div>
+    </div>
     {% endblock %}
 
 {% endblock %}
 
+<div class="container" style="margin-top:100px;"> <!-- main page container -->
 {%block content %}<h3>base.html - default content</h3>{% endblock %}
+</div> <!-- Ends the main Content div -->
 
 {% block footer %}
 	<div class="container-fluid well footer">
 	<div class="container">
-
-    <p style="text-align:center;">Copyright &copy; 2015 Indigint Inc.</p>
-
+            <p class="footer-text">Copyright &copy; 2015 Indigint Inc.</p>
 	</div> <!-- end of container class -->
 	</div> <!-- end of container-fluid well class -->
     {% endblock %}

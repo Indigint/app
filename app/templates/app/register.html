@@ -2,18 +2,58 @@
 
 {% block content %}
 
-    {% if registered %}
-        <h3>Registration successful. Thank you for registering!</h3>
+    <div class="container">
+        <div id="loginbox" style="margin-top:50px;" class="mainbox col-md-6 col-md-offset-3 col-sm-8 col-sm-offset-2">
+            <div class="panel panel-info">
+                <div class="panel-heading">
+                    <div class="panel-title">Sign Up</div>
+                </div>
 
-    {% else %}
-        <form id="user_form" method="post" action="/app/register/" enctype="multipart/form-data">
+                <div style="padding-top:30px" class="panel-body">
 
-            {% csrf_token %}
+                    <div style="display:none" id="login-alert" class="alert alert-danger col-sm-12"></div>
 
-            {{ user_form.as_p }}
+                    {% if registered %}
+                        <h3>Registration successful. Thank you for registering!</h3>
+                    {% else %}
+                        <form id="user_form" method="post" action="/app/register/" enctype="multipart/form-data">
 
-            <input type="submit" name="submit" value="Register" />
-        </form>
-    {% endif %}
+                        {% csrf_token %}
+                        <!-- Username -->
+                        <div style="margin-bottom: 10px" class="input-group">
+                            <span class="input-group-addon"<i class="glyphicon glyphicon-user"></i></span>
+                            <input id="login-username" type="text" class="form-control" name="username" value="" placeholder="Username">
+                        </div>
+                        <!-- First Name -->
+                        <div style="margin-bottom: 10px" class="input-group">
+                            <span class="input-group-addon"<i class="glyphicon glyphicon-user"></i></span>
+                            <input id="login-username" type="text" class="form-control" name="first_name" value="" placeholder="First Name">
+                        </div>
+                        <!-- Last Name -->
+                        <div style="margin-bottom: 10px" class="input-group">
+                            <span class="input-group-addon"<i class="glyphicon glyphicon-user"></i></span>
+                            <input id="login-username" type="text" class="form-control" name="last_name" value="" placeholder="Last Name">
+                        </div>
+                        <!-- Email Address -->
+                        <div style="margin-bottom: 10px" class="input-group">
+                            <span class="input-group-addon"<i class="glyphicon glyphicon-envelope"></i></span>
+                            <input id="email" type="text" class="form-control" name="email" value="" placeholder="Email">
+                        </div>
+                        <!-- Password -->
+                        <div style="margin-bottom: 10px" class="input-group">
+                            <span class="input-group-addon"<i class="glyphicon glyphicon-ok-circle"></i></span>
+                            <input id="password" type="password" class="form-control" name="password" value="" placeholder="Password">
+                        </div>
+                        <br />
+
+                            <input type="submit" name="submit" id="btn-login" class="btn btn-success" value="Register" />
+                        </form>
+                    {% endif %}
+
+                </div>
+
+            </div>
+        </div>
+    </div>
 
 {% endblock %}

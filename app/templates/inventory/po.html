@@ -1,4 +1,5 @@
 {% extends "app/base.html" %}
+<<<<<<< HEAD
 {% load static %}
 
 {% block content %}
@@ -17,3 +18,22 @@
     </table>
 
 {% endblock %}
+=======
+
+{% block content %}
+
+<table>
+    <tr>
+        <th>---</th>
+        <th>{{customer}}</th>
+    </tr>
+    {% for i in items %}
+     <tr>
+         <td>{{i.purchase.quantity}}</td>
+         <td>{{i.purchase.item.name}}(s)</td>
+     </tr>
+    {% endfor %}
+</table>
+
+{% endblock %}
+>>>>>>> 7a88fb8412085d5d4724746adfaaca5acc6ae17b

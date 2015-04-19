@@ -1,0 +1,80 @@
+Indigint Inventory Manager Documentation
+
+== Features ==
+
+Front End:
+  - Navigation Box
+  - Landing page (sign up, login, contact)
+  - Sign up page (create an account)
+  - Dashboard page (sign out, view PO, view user info)
+  - PO page
+  - About page (bio, contact info)
+  - User Login
+  - Uniform CSS (color scheme, header, footer)
+
+Back End:
+  - Admin login page
+  - Database (sqlite3)
+  - Customer Table
+  - Item Table
+  - PO Link Purchase Table
+  - Purchase Order Table
+  - Purchase Table
+  - Vendor Table
+
+== User Pages ==
+
+Landing page
+  - Sign up, login, contact
+
+-- Sign up page --
+The sign up page is simple:
+  1. Enter your desired username, email address, and password
+  2. Click "Register"
+
+Dashboard page
+  - Log out, view PO's, view user info
+
+PO page
+  - View PO's
+
+About page
+  - Read the bio and contact info
+
+== Admin Pages ==
+
+-- Admin Login Page --
+The admin login page is simple:
+  1. Enter your username and password
+  2. Click "Log in"
+
+Customers
+  - On the Customers page you can add, edit, or delete customers
+
+Items
+  - On the Items page you can add, edit, or delete items
+
+PO Link Purchases
+  - On the PO Link Purchases page you can add, edit, or delete PO link purchases
+
+Purchase Orders
+  - On the Purchase Orders page you can add, edit, or delete purchase orders
+
+Purchases
+  - On the Purchase page you can add, edit, or delete purchases
+
+Vendors
+  - On the Vendor page you can add, edit, or delete vendors
+
+== Database Tables ==
+
+* The inventory app uses a SQLite3 database to store data
+
+There are six main database tables used in the inventory app:
+  - Customer Table
+  - Item Table
+  - PO Link Purchase Table
+  - Purchase Order Table
+  - Purchase Table
+  - Vendor Table
+
