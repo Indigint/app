@@ -27,12 +27,7 @@ def register(request):
             # Save the user's form data to the database.
             user = user_form.save()
             user.set_password(user.password)
-            #user.save()
-
-            # Register them as a customer
-            customer = Customer(user=user)
-            #customer.save()
-
+            user.save()
             registered = True
         else:
             print user_form.errors
